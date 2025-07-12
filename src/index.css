@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #a7f3d0, #bae6fd);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #6ee7b7, #7dd3fc);
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #10b981 #1e293b;
+}
+
+/* Custom gradient text selection */
+::selection {
+  background: rgba(16, 185, 129, 0.08);
+  color: #047857;
+}
+
+/* Remove default focus outline and add custom */
+button:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* Custom styles for better visual hierarchy */
+.container {
+  max-width: 1200px;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Custom backdrop blur for better browser support */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark theme optimizations */
+body {
+  background: linear-gradient(135deg, #f8fafc 0%, #e0f7fa 100%);
+  color: #334155;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+/* Custom button styles */
+.btn-primary {
+  background: linear-gradient(135deg, #a7f3d0, #bae6fd);
+  color: #047857;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #6ee7b7, #7dd3fc);
+  color: #0e7490;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.08);
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+@keyframes blob1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -30px) scale(1.1); }
+  66% { transform: translate(-30px, 20px) scale(0.95); }
+}
+@keyframes blob2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-40px, 30px) scale(1.1); }
+  66% { transform: translate(30px, -20px) scale(0.95); }
+}
+@keyframes blob3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, 40px) scale(1.1); }
+  66% { transform: translate(-20px, -30px) scale(0.95); }
+}
+.animate-blob1 { animation: blob1 16s infinite linear alternate; }
+.animate-blob2 { animation: blob2 18s infinite linear alternate; }
+.animate-blob3 { animation: blob3 20s infinite linear alternate; }
+
+/* Glassmorphism utility for light mode */
+.glass {
+  background: rgba(255,255,255,0.7);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+/* Section spacing for neatness */
+section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.5px;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+h2, h3 {
+  margin-bottom: 1.5rem;
+}
+
+/* Card style for neatness */
+.card, .bg-white\/90, .bg-white\/80, .bg-emerald-50 {
+  box-shadow: 0 4px 24px 0 rgba(16, 185, 129, 0.06), 0 1.5px 6px 0 rgba(0,0,0,0.03);
+  border-radius: 1.25rem;
+}
+
+/* Button and input focus for neatness */
+button:focus, input:focus, textarea:focus {
+  outline: 2px solid #34d399;
+  outline-offset: 2px;
+}
+
+/* Increase space between sections */
+section + section {
+  margin-top: 2rem;
+}
+
+/* Neater container */
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Subtle divider for neatness */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, #a7f3d0 0%, #bae6fd 100%);
+  margin: 2.5rem 0;
+  border: none;
+}
