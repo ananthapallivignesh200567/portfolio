@@ -134,10 +134,7 @@ const Experience = () => {
                 I'm always excited to take on new challenges and contribute to innovative projects. 
                 Let's discuss how I can add value to your team.
               </p>
-              <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-2xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold">
-                <ExternalLink size={20} />
-                View Resume
-              </button>
+              
             </div>
           </div>
         </div>

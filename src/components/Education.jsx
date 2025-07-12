@@ -218,10 +218,7 @@ const Education = () => {
               <p className="text-neutral-600 mb-6 max-w-2xl mx-auto">
                 I believe in lifelong learning and staying updated with the latest technologies and industry trends.
               </p>
-              <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-2xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold">
-                <Users size={20} />
-                View Certificates
-              </button>
+              
             </div>
           </div>
         </div>
