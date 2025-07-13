@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Calendar, MapPin, Award, BookOpen, Users } from 'lucide-react';
+import { GraduationCap, Calendar, MapPin, Award, BookOpen, Users, TrendingUp, Star } from 'lucide-react';
 
 const Education = () => {
   const education = [
@@ -77,102 +77,111 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-24 bg-gradient-to-br from-neutral-50 via-blue-50 to-indigo-50">
-      <div className="container mx-auto px-6">
-        {/* Section Header */}
+    <section id="education" className="py-24 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-indigo-50/30 to-purple-50/50"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Enhanced Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-black mb-6 gradient-text">
             Education & Certifications
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto mb-8 rounded-full"></div>
+          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto mb-8 rounded-full animate-pulse-glow"></div>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
             My academic journey and professional certifications that have shaped my technical expertise.
           </p>
         </div>
 
         <div className="max-w-7xl mx-auto">
-          {/* Education Timeline */}
+          {/* Enhanced Education Timeline */}
           <div className="mb-20">
             <div className="text-center mb-12">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
                 Academic Journey
               </h3>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full animate-pulse-glow"></div>
             </div>
 
             <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full"></div>
+              {/* Enhanced Timeline Line */}
+              <div className="absolute left-8 top-0 bottom-0 w-1 timeline-line"></div>
               
               {education.map((edu, index) => (
-                <div key={index} className="relative mb-12">
-                  {/* Timeline Dot */}
-                  <div className="absolute left-6 top-6 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border-4 border-white shadow-lg"></div>
+                <div key={index} className="relative mb-16">
+                  {/* Enhanced Timeline Dot */}
+                  <div className="absolute left-6 top-8 timeline-dot"></div>
                   
-                  {/* Education Card */}
-                  <div className="ml-16 bg-white/80 backdrop-blur-sm border border-neutral-200 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                  {/* Enhanced Education Card */}
+                  <div className="ml-16 glass border border-white/30 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover-lift">
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-neutral-800 mb-2">{edu.degree}</h3>
-                        <div className="flex items-center gap-4 text-neutral-600 mb-3">
+                        <h3 className="text-2xl font-bold text-neutral-800 mb-3">{edu.degree}</h3>
+                        <div className="flex flex-wrap items-center gap-6 text-neutral-600 mb-4">
                           <div className="flex items-center gap-2">
-                            <GraduationCap size={18} className="text-blue-500" />
+                            <div className="p-2 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl text-white">
+                              <GraduationCap size={16} />
+                            </div>
                             <span className="font-semibold">{edu.institution}</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <MapPin size={18} className="text-purple-500" />
+                            <div className="p-2 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl text-white">
+                              <MapPin size={16} />
+                            </div>
                             <span>{edu.location}</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <Calendar size={18} className="text-pink-500" />
+                            <div className="p-2 bg-gradient-to-r from-pink-500 to-pink-600 rounded-xl text-white">
+                              <Calendar size={16} />
+                            </div>
                             <span>{edu.period}</span>
                           </div>
                         </div>
                       </div>
                       
-                      {/* GPA Badge */}
-                      <div className="lg:ml-4 mb-4 lg:mb-0">
-                        <div className="text-center p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border border-blue-200">
-                          <div className="text-3xl font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                      {/* Enhanced GPA Badge */}
+                      <div className="lg:ml-4 mb-6 lg:mb-0">
+                        <div className="text-center p-6 glass border border-white/30 rounded-2xl">
+                          <div className="text-4xl font-black gradient-text mb-2">
                             {edu.gpa}
                           </div>
-                          <div className="text-sm text-neutral-600 font-medium">GPA</div>
+                          <div className="text-sm text-neutral-600 font-semibold">GPA</div>
                         </div>
                       </div>
                     </div>
 
-                    <p className="text-neutral-600 text-lg leading-relaxed mb-6">
+                    <p className="text-neutral-600 text-lg leading-relaxed mb-8">
                       {edu.description}
                     </p>
 
                     <div className="grid lg:grid-cols-2 gap-8">
-                      {/* Course Highlights */}
+                      {/* Enhanced Course Highlights */}
                       <div>
                         <h4 className="text-lg font-semibold text-neutral-800 mb-4 flex items-center gap-2">
                           <BookOpen className="w-5 h-5 text-blue-500" />
                           Course Highlights
                         </h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-3">
                           {edu.highlights.map((highlight, highlightIndex) => (
-                            <li key={highlightIndex} className="flex items-start gap-3">
-                              <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                              <span className="text-neutral-600 text-sm">{highlight}</span>
+                            <li key={highlightIndex} className="flex items-start gap-3 group">
+                              <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2 flex-shrink-0 animate-pulse" style={{ animationDelay: `${highlightIndex * 0.2}s` }}></div>
+                              <span className="text-neutral-600 text-sm group-hover:text-neutral-800 transition-colors duration-300">{highlight}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
 
-                      {/* Achievements */}
+                      {/* Enhanced Achievements */}
                       <div>
                         <h4 className="text-lg font-semibold text-neutral-800 mb-4 flex items-center gap-2">
                           <Award className="w-5 h-5 text-purple-500" />
                           Key Achievements
                         </h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-3">
                           {edu.achievements.map((achievement, achievementIndex) => (
-                            <li key={achievementIndex} className="flex items-start gap-3">
-                              <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mt-2 flex-shrink-0"></div>
-                              <span className="text-neutral-600 text-sm">{achievement}</span>
+                            <li key={achievementIndex} className="flex items-start gap-3 group">
+                              <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mt-2 flex-shrink-0 animate-pulse" style={{ animationDelay: `${achievementIndex * 0.2}s` }}></div>
+                              <span className="text-neutral-600 text-sm group-hover:text-neutral-800 transition-colors duration-300">{achievement}</span>
                             </li>
                           ))}
                         </ul>
@@ -184,23 +193,23 @@ const Education = () => {
             </div>
           </div>
 
-          {/* Certifications */}
+          {/* Enhanced Certifications */}
           <div>
             <div className="text-center mb-12">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
                 Professional Certifications
               </h3>
-              <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full animate-pulse-glow"></div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               {certifications.map((cert, index) => (
-                <div key={index} className="bg-white/80 backdrop-blur-sm border border-neutral-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div key={index} className="glass border border-white/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover-lift">
                   <div className="flex items-start gap-4">
-                    <div className="text-3xl">{cert.icon}</div>
+                    <div className="text-4xl">{cert.icon}</div>
                     <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-neutral-800 mb-1">{cert.title}</h4>
-                      <p className="text-sm text-blue-600 font-medium mb-2">{cert.issuer} • {cert.year}</p>
+                      <h4 className="text-lg font-semibold text-neutral-800 mb-2">{cert.title}</h4>
+                      <p className="text-sm text-blue-600 font-semibold mb-3 bg-blue-50/50 px-3 py-1 rounded-full inline-block">{cert.issuer} • {cert.year}</p>
                       <p className="text-neutral-600 text-sm leading-relaxed">{cert.description}</p>
                     </div>
                   </div>
@@ -209,16 +218,16 @@ const Education = () => {
             </div>
           </div>
 
-          {/* Call to Action */}
-          <div className="text-center mt-16">
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-3xl p-8">
-              <h3 className="text-2xl font-bold text-neutral-800 mb-4">
+          {/* Enhanced Call to Action */}
+          <div className="text-center mt-20">
+            <div className="glass border border-white/30 rounded-3xl p-8">
+              <h3 className="text-2xl font-bold text-neutral-800 mb-4 flex items-center justify-center gap-2">
+                <TrendingUp className="w-6 h-6 text-blue-500" />
                 Continuous Learning
               </h3>
               <p className="text-neutral-600 mb-6 max-w-2xl mx-auto">
                 I believe in lifelong learning and staying updated with the latest technologies and industry trends.
               </p>
-              
             </div>
           </div>
         </div>

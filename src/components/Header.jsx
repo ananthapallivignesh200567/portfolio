@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sparkles } from 'lucide-react';
 
 const Header = ({ activeSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,63 +34,71 @@ const Header = ({ activeSection }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-neutral-200'
+          ? 'glass shadow-2xl border-b border-white/20'
           : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Vignesh Ananthapalli
+          {/* Enhanced Brand */}
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg">
+              <Sparkles className="w-6 h-6 text-white" />
+            </div>
+            <div className="text-2xl font-bold gradient-text">
+              Vignesh Ananthapalli
+            </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-8">
+          {/* Enhanced Desktop Navigation */}
+          <nav className="hidden lg:flex space-x-2">
             {menuItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
+                className={`relative px-6 py-3 text-sm font-semibold transition-all duration-300 rounded-2xl group ${
                   activeSection === item.id
-                    ? 'text-blue-600 bg-blue-50'
-                    : 'text-neutral-600 hover:text-blue-600 hover:bg-blue-50'
+                    ? 'text-white bg-gradient-to-r from-blue-500 to-purple-500 shadow-lg'
+                    : 'text-neutral-600 hover:text-blue-600 hover:bg-white/20'
                 }`}
               >
                 {item.label}
                 {activeSection === item.id && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-white rounded-full animate-pulse-glow"></div>
                 )}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Enhanced Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-neutral-600 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+            className="lg:hidden p-3 rounded-2xl text-neutral-600 hover:text-blue-600 hover:bg-white/20 transition-all duration-300 glass"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Enhanced Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-t border-neutral-200 shadow-lg">
-            <div className="container mx-auto px-6 py-4">
-              <div className="grid grid-cols-2 gap-2">
+          <nav className="lg:hidden absolute top-full left-0 right-0 glass shadow-2xl border-t border-white/20 mt-2">
+            <div className="container mx-auto px-6 py-6">
+              <div className="grid grid-cols-2 gap-3">
                 {menuItems.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`block w-full text-left px-4 py-3 text-sm font-medium transition-all duration-300 rounded-lg ${
+                    className={`block w-full text-left px-6 py-4 text-sm font-semibold transition-all duration-300 rounded-2xl group ${
                       activeSection === item.id
-                        ? 'text-blue-600 bg-blue-50'
-                        : 'text-neutral-600 hover:text-blue-600 hover:bg-blue-50'
+                        ? 'text-white bg-gradient-to-r from-blue-500 to-purple-500 shadow-lg'
+                        : 'text-neutral-600 hover:text-blue-600 hover:bg-white/20'
                     }`}
                   >
                     {item.label}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </button>
                 ))}
               </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, Heart, ArrowUp, Phone, MapPin } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, ArrowUp, Phone, MapPin, Sparkles } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -39,21 +39,26 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-neutral-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+    <footer className="glass-dark relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/5 to-transparent"></div>
       </div>
 
       <div className="container mx-auto px-6 py-16 relative z-10">
-        {/* Main Footer Content */}
+        {/* Enhanced Main Footer Content */}
         <div className="grid lg:grid-cols-3 gap-12 mb-12">
-          {/* Brand Section */}
+          {/* Enhanced Brand Section */}
           <div className="space-y-6">
-          <div>
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
-              Vignesh Ananthapalli
-            </h3>
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg">
+                  <Sparkles className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold gradient-text">
+                  Vignesh Ananthapalli
+                </h3>
+              </div>
               <p className="text-neutral-300 leading-relaxed">
                 Full Stack Developer passionate about creating innovative solutions and building scalable applications with modern technologies.
               </p>
@@ -62,23 +67,23 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-semibold text-white mb-4">Connect With Me</h4>
               <div className="flex gap-4">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                    className={`p-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white transition-all duration-300 hover:scale-110 hover:bg-white/20 ${social.color}`}
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`social-link p-4 glass border border-white/20 rounded-2xl text-white transition-all duration-300 hover:scale-110 ${social.color}`}
                     aria-label={social.name}
-                >
-                  {social.icon}
-                </a>
-              ))}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Enhanced Quick Links */}
           <div>
             <h4 className="text-lg font-semibold text-white mb-6">Quick Links</h4>
             <div className="grid grid-cols-2 gap-3">
@@ -86,27 +91,27 @@ const Footer = () => {
                 <a
                   key={index}
                   href={link.href}
-                  className="text-neutral-300 hover:text-white transition-colors duration-300 py-2 hover:translate-x-1 transform"
+                  className="text-neutral-300 hover:text-white transition-all duration-300 py-2 hover:translate-x-2 transform group"
                 >
-                  {link.name}
+                  <span className="group-hover:text-blue-400 transition-colors duration-300">{link.name}</span>
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Contact Info */}
+          {/* Enhanced Contact Info */}
           <div>
             <h4 className="text-lg font-semibold text-white mb-6">Get In Touch</h4>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg">
+                <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl shadow-lg">
                   <Mail className="w-4 h-4 text-white" />
                 </div>
                 <div>
                   <p className="text-sm text-neutral-400">Email</p>
-              <a
-                href="mailto:vigneshananthapalli67@gmail.com"
-                    className="text-neutral-300 hover:text-white transition-colors"
+                  <a
+                    href="mailto:vigneshananthapalli67@gmail.com"
+                    className="text-neutral-300 hover:text-white transition-colors duration-300"
                   >
                     vigneshananthapalli67@gmail.com
                   </a>
@@ -114,14 +119,14 @@ const Footer = () => {
               </div>
               
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
+                <div className="p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl shadow-lg">
                   <Phone className="w-4 h-4 text-white" />
                 </div>
                 <div>
                   <p className="text-sm text-neutral-400">Phone</p>
                   <a 
                     href="tel:+919704543369"
-                    className="text-neutral-300 hover:text-white transition-colors"
+                    className="text-neutral-300 hover:text-white transition-colors duration-300"
                   >
                     +91 9704543369
                   </a>
@@ -129,7 +134,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-gradient-to-r from-pink-500 to-red-500 rounded-lg">
+                <div className="p-3 bg-gradient-to-r from-pink-500 to-red-500 rounded-xl shadow-lg">
                   <MapPin className="w-4 h-4 text-white" />
                 </div>
                 <div>
@@ -141,10 +146,10 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Divider */}
+        {/* Enhanced Divider */}
         <div className="border-t border-white/20 mb-8"></div>
 
-        {/* Bottom Section */}
+        {/* Enhanced Bottom Section */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2 text-neutral-300">
             <span>© {currentYear} Vignesh Ananthapalli. All rights reserved.</span>
@@ -156,16 +161,16 @@ const Footer = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={scrollToTop}
-              className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-2xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110"
+              className="p-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-2xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 group"
               aria-label="Scroll to top"
             >
-              <ArrowUp className="w-5 h-5" />
+              <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform duration-300" />
             </button>
           </div>
         </div>
       </div>
 
-      {/* Gradient Overlay */}
+      {/* Enhanced Gradient Overlay */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
     </footer>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, MessageSquare, User, FileText } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageSquare, User, FileText, Sparkles } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -69,14 +69,17 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-neutral-50 via-blue-50 to-indigo-50">
-      <div className="container mx-auto px-6">
-        {/* Section Header */}
+    <section id="contact" className="py-24 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-purple-50/30 to-pink-50/50"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Enhanced Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-black mb-6 gradient-text">
             Get In Touch
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto mb-8 rounded-full"></div>
+          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto mb-8 rounded-full animate-pulse-glow"></div>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
             I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
           </p>
@@ -84,10 +87,11 @@ const Contact = () => {
 
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16">
-            {/* Contact Information */}
+            {/* Enhanced Contact Information */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-3xl font-bold text-neutral-800 mb-6">
+                <h3 className="text-3xl font-bold text-neutral-800 mb-6 flex items-center gap-2">
+                  <Sparkles className="w-6 h-6 text-blue-500" />
                   Let's Connect
                 </h3>
                 <p className="text-lg text-neutral-600 leading-relaxed mb-8">
@@ -95,25 +99,25 @@ const Contact = () => {
                 </p>
               </div>
 
-              {/* Contact Info Cards */}
+              {/* Enhanced Contact Info Cards */}
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <div key={index} className="bg-white/80 backdrop-blur-sm border border-neutral-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div key={index} className="glass border border-white/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover-lift">
                     <div className="flex items-center gap-4">
-                      <div className={`p-3 rounded-2xl bg-gradient-to-r ${getColorClasses(info.color)} text-white`}>
+                      <div className={`p-4 rounded-2xl bg-gradient-to-r ${getColorClasses(info.color)} text-white shadow-lg`}>
                         {info.icon}
                       </div>
                       <div className="flex-1">
-                        <h4 className="text-lg font-semibold text-neutral-800 mb-1">{info.title}</h4>
+                        <h4 className="text-lg font-semibold text-neutral-800 mb-2">{info.title}</h4>
                         {info.link ? (
                           <a 
                             href={info.link} 
-                            className="text-neutral-600 hover:text-blue-600 transition-colors"
+                            className="text-neutral-600 hover:text-blue-600 transition-colors duration-300 font-medium"
                           >
                             {info.value}
                           </a>
                         ) : (
-                          <p className="text-neutral-600">{info.value}</p>
+                          <p className="text-neutral-600 font-medium">{info.value}</p>
                         )}
                       </div>
                     </div>
@@ -121,7 +125,7 @@ const Contact = () => {
                 ))}
               </div>
 
-              {/* Social Links */}
+              {/* Enhanced Social Links */}
               <div>
                 <h4 className="text-xl font-semibold text-neutral-800 mb-4">Follow Me</h4>
                 <div className="flex gap-4">
@@ -131,21 +135,21 @@ const Contact = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-4 bg-white/80 backdrop-blur-sm border border-neutral-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                      className="social-link p-6 glass border border-white/30 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
                     >
-                      <div className="text-2xl">{social.icon}</div>
-                      <div className="text-sm font-medium text-neutral-700 mt-1">{social.name}</div>
+                      <div className="text-3xl mb-2">{social.icon}</div>
+                      <div className="text-sm font-semibold text-neutral-700">{social.name}</div>
                     </a>
                   ))}
                 </div>
               </div>
 
-              {/* Availability Status */}
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-2xl p-6">
-                <h4 className="text-lg font-semibold text-neutral-800 mb-2">Current Status</h4>
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-green-700 font-medium">Available for opportunities</span>
+              {/* Enhanced Availability Status */}
+              <div className="glass border border-white/30 rounded-2xl p-6">
+                <h4 className="text-lg font-semibold text-neutral-800 mb-3">Current Status</h4>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-4 h-4 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-green-700 font-semibold">Available for opportunities</span>
                 </div>
                 <p className="text-neutral-600 text-sm">
                   I'm currently open to full-time positions, freelance work, and interesting collaborations.
@@ -153,10 +157,10 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="bg-white/80 backdrop-blur-sm border border-neutral-200 rounded-3xl p-8 shadow-lg">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl text-white">
+            {/* Enhanced Contact Form */}
+            <div className="glass border border-white/30 rounded-3xl p-8 shadow-lg">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="p-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl text-white shadow-lg">
                   <MessageSquare className="w-6 h-6" />
                 </div>
                 <h3 className="text-2xl font-bold text-neutral-800">Send Message</h3>
@@ -165,8 +169,8 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-2">
-                      <User className="w-4 h-4 inline mr-2" />
+                    <label htmlFor="name" className="block text-sm font-semibold text-neutral-700 mb-3 flex items-center gap-2">
+                      <User className="w-4 h-4 text-blue-500" />
                       Name
                     </label>
                     <input
@@ -176,13 +180,13 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                      className="form-input w-full px-4 py-4 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                       placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-2">
-                      <Mail className="w-4 h-4 inline mr-2" />
+                    <label htmlFor="email" className="block text-sm font-semibold text-neutral-700 mb-3 flex items-center gap-2">
+                      <Mail className="w-4 h-4 text-blue-500" />
                       Email
                     </label>
                     <input
@@ -192,15 +196,15 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                      className="form-input w-full px-4 py-4 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                       placeholder="your.email@example.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-neutral-700 mb-2">
-                    <FileText className="w-4 h-4 inline mr-2" />
+                  <label htmlFor="subject" className="block text-sm font-semibold text-neutral-700 mb-3 flex items-center gap-2">
+                    <FileText className="w-4 h-4 text-blue-500" />
                     Subject
                   </label>
                   <input
@@ -210,14 +214,14 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                    className="form-input w-full px-4 py-4 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                     placeholder="What's this about?"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-2">
-                    <MessageSquare className="w-4 h-4 inline mr-2" />
+                  <label htmlFor="message" className="block text-sm font-semibold text-neutral-700 mb-3 flex items-center gap-2">
+                    <MessageSquare className="w-4 h-4 text-blue-500" />
                     Message
                   </label>
                   <textarea
@@ -227,17 +231,17 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm resize-none"
+                    className="form-input w-full px-4 py-4 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
                     placeholder="Tell me about your project or opportunity..."
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-2xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold flex items-center justify-center gap-2"
+                  className="w-full py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-2xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold flex items-center justify-center gap-2 group"
                 >
-                  <Send size={20} />
-                  Send Message
+                  <Send size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
+                  <span>Send Message</span>
                 </button>
               </form>
             </div>
